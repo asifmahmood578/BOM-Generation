@@ -1,38 +1,264 @@
-.App {
+.container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  background-image: linear-gradient(to bottom right, #f7f7f7, #e3e3e3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #e8e8e8;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+.header-inputs {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.header-item {
+  display: flex;
+  align-items: center;
+}
+
+.header-item label {
+  margin-right: 10px;
+}
+
+.header-item input {
+  border: none; /* Remove border */
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.btn-view, .btn-save, .btn-delete {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease; /* Add smooth transition for hover effect */
+}
+
+.btn-view:hover,
+.btn-save:hover,
+.btn-delete:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+.btn-delete {
+  background-color: #f44336;
+}
+
+.btn-delete:hover {
+  background-color: #d9534f; /* Darker red on hover */
+}
+
+.master-data input {
+  width: 100%;
+  border: none; /* Remove border */
+  font-weight: bold;
   text-align: center;
+  margin-bottom: 10px;
+  background-color: #dcdcdc;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.description {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.description-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-right: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.description-item.large {
+  flex: 4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.description-item.small {
+  flex: 1;
+}
+
+.description-item label {
+  margin-bottom: 5px;
+}
+
+.description input {
+  border: none; /* Remove border */
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  margin: 0 5px;
+}
+
+.data-table {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.input-data, .output-data {
+  width: 48%;
+  margin-bottom: 20px;
+}
+
+.table-title {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.output-data .output-table {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.input-data table, .output-data table, .activity-data table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff; /* Set table background color */
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+table, th, td {
+  border: 1px solid #ccc; /* Use a lighter border color */
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0; /* Set table header background color */
+  font-weight: bold; /* Make table headers bold */
+}
+
+.no-style-input {
+  border: none;
+  background: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+.clr-white{
+  background-color: white;
+}
+
+td {
+  padding: 0;
+}
+
+/* Add responsive styles */
+@media (max-width: 980px) {
+  .activity-data {
+    overflow-x: auto; /* Enable horizontal scrolling on smaller screens if needed */
   }
-  to {
-    transform: rotate(360deg);
+
+  .activity-data table {
+    width: 100%; /* Ensure table fills its container */
   }
+
+  .activity-data th,
+  .activity-data td {
+    max-width: 120px; /* Adjust maximum width of cells for smaller screens */
+    overflow: hidden; /* Hide overflow content */
+    text-overflow: ellipsis; /* Display ellipsis for overflow content */
+  }
+}
+
+
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+  .data-table {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-data, .output-data {
+    width: 100%;
+  }
+
+  .description {
+    flex-direction: column;
+  }
+
+  .activity-data {
+    overflow-x: auto; /* Enable horizontal scrolling on small screens */
+  }
+  
+  .activity-data table {
+    width: 100%; /* Ensure table fills its container */
+    white-space: nowrap; /* Prevent line wrapping on table cells */
+  }
+  
+  .activity-data th,
+  .activity-data td {
+    min-width: 100px; /* Ensure each cell has minimum width for readability */
+  }
+  
+  .output-data .table-container {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .output-data .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .output-data table, .output-data th, .output-data td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .output-data th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+
+  .scrollable-table-container {
+    max-height: 200px; /* Change the max-height value to your preference */
+    overflow-y: auto;
+  }
+  
+  .no-style-input {
+    border: none;
+    background: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    width: 100%;
+  }
+
 }
